@@ -1,0 +1,10 @@
+PostgreSQL da ROLE ma'lumotlar bazasi foydalanuvchilari va guruhlarini boshqarish uchun ishlatiladigan tushunchadir. Rol foydalanuvchi hisoblari, huquqlar va guruhlarni ifodalaydi. 
+
+CREATE ROLE admin;
+
+CREATE USER ibragimov WITH PASSWORD 'password123';
+
+GRANT privilege TO admin;
+
+GRANT ALL PRIVILEGES ON TABLE users TO admin;
+

@@ -1,0 +1,61 @@
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price NUMERIC(10, 2) NOT NULL,
+    quantity INT NOT NULL
+);
+
+
+INSERT INTO products (name, price, quantity) VALUES
+('Coca-Cola', 1.50, 10),
+('Pepsi', 1.50, 8),
+('Snicker', 1.00, 15),
+('Chips', 0.75, 20);
+
+CREATE OR REPLACE FUNCTION list_products() RETURNS TABLE (product_id INT, name VARCHAR(255), price NUMERIC, quantity INT) AS $$
+BEGIN
+    RETURN QUERY SELECT products.product_id, products.name, products.price, products.quantity FROM products;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION buy_product(product_id INT, quantity_param INT) RETURNS BOOLEAN AS $$
+DECLARE
+    product_price NUMERIC;
+    product_quantity INT;
+BEGIN
+    SELECT price, quantity INTO product_price, product_quantity FROM products WHERE product_id = product_id;
+    
+    IF product_quantity >= quantity_param THEN
+        UPDATE products SET quantity = product_quantity - quantity_param WHERE product_id = product_id;
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE PROCEDURE add_money(amount NUMERIC) AS $$
+BEGIN
+    UPDATE vending_machine_balance SET balance = balance + amount;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE PROCEDURE make_purchase(product_id INT, quantity INT) AS $$
+BEGIN
+    IF buy_product(product_id, quantity) THEN
+        CALL add_money(-(SELECT price * quantity FROM products WHERE product_id = product_id));
+    ELSE
+        RAISE EXCEPTION 'Not enough quantity available for this product';
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+SELECT * FROM list_products();
+SELECT add_money(10);
+SELECT buy_product(1, 2);
+
+

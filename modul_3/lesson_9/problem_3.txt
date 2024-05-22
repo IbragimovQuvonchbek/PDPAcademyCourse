@@ -1,0 +1,4 @@
+INDEX oddiy indeks bo'lib, jadval ustundagi qiymatlar bo'yicha qidiruvni tezlashtiradi. INDEX yordamida bir ustun yoki bir nechta ustunlarga asoslangan qidiruvlarni optimallashtirish mumkin. 
+
+
+UNIQUE INDEX esa oddiy indeksning barcha xususiyatlariga ega, lekin u qo'shimcha tarzda indekslangan ustundagi qiymatlarning yagona bo'lishini ta'minlaydi. Bu shuni anglatadiki, UNIQUE INDEX yordamida indekslangan ustunda takroriy qiymatlar bo'lishi mumkin emas. 

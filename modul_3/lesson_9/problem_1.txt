@@ -1,0 +1,15 @@
+Transaction ma'lumotlar bazasida bir yoki bir nechta SQL buyruqlarini birgalikda bajarishni ifodalaydi.
+
+Atomicity - Tranzaksiyadagi barcha operatsiyalar yagona bo'lak sifatida ko'riladi. Agar tranzaksiyadagi biror operatsiya bajarilmasa, hammasi bekor qilinadi.
+
+Consistency - Tranzaksiya boshlanishi va tugashi orasida ma'lumotlar bazasi izchil holatda bo'lishi kerak.
+
+Isolation - Har bir tranzaksiya boshqa tranzaksiyalardan mustaqil ravishda bajariladi.
+
+Durability - Tranzaksiya muvaffaqiyatli bajarilgan bo'lsa, uning natijalari doimiy saqlanadi, hatto tizim xatosi yuz bersa ham.
+
+BEGIN - buyrug'i tranzaksiyani boshlaydi.
+
+COMMIT - buyrug'i tranzaksiyani muvaffaqiyatli bajarilgan deb tasdiqlaydi va barcha o'zgarishlar doimiy saqlanadi.
+
+ROLLBACK - buyrug'i tranzaksiyani bekor qiladi va tranzaksiyadagi barcha o'zgarishlarni qaytarib oladi.
