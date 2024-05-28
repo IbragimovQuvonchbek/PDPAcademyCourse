@@ -1,0 +1,2 @@
+ MySQL, PostgreSQL, SQLite.
+Relational database lar ma'lumotlarni jadvallar va relationships orqali saqlaydi. Ularning afzalliklari o'zaro bog'lanish, bo'sh ma'lumotlar NULLni qo'llash, transactions ni qo'llash, index lar

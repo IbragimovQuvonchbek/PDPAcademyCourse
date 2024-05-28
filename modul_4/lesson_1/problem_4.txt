@@ -1,0 +1,2 @@
+TCP (uzatishni boshqarish protokoli) va UDP (foydalanuvchi ma'lumotlar dasturi protokoli) o'rtasidagi asosiy farq shundaki, TCP ulanishga asoslangan protokol va UDP ulanishsizdir.
+TCP ishonchliroq bo'lsa-da, u ma'lumotlarni sekinroq uzatadi. UDP kamroq ishonchli, lekin tezroq ishlaydi.

@@ -1,0 +1,4 @@
+Har bir kompyuter internet tarmog‘iga ulanganida, unga IP manzil beriladi.
+Bu manzil kompyuterning tarmoqdagi yagona identifikatori bo‘lib, boshqa kompyuterlar bilan aloqaga chiqishda ishlatiladi.
+Kompyuterlar o‘zaro aloqa qilish uchun IP manzillarni ishlatadi, lekin insonlar uchun domen nomlari qulayroq.
+DNS xizmatlari domen nomlarini IP manzillarga aylantiradi va shu orqali kompyuterlar bir-birlarini topa oladi.

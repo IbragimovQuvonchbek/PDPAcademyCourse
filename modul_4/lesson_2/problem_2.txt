@@ -1,0 +1,8 @@
+HTML
+CSS
+JavaScript
+React
+Angular
+Vue.js
+Sass va LESS
+TypeScript

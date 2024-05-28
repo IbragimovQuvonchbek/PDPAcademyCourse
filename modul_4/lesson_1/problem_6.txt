@@ -1,0 +1,3 @@
+HTTP 200 OK -  So'rov muvaffaqiyatli amalga oshirildi.
+HTTP 400 Bad Request - Mijozning so'rovi noto'g'ri yoki noto'liq.
+HTTP 500 Internal Server Error - Serverning ichki xatosi.

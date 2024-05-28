@@ -1,0 +1,2 @@
+MongoDB, Cassandra, Redis.
+NoSQL database lar ma'lumotlarni key-value, document, columnar, yoki graph formatlarida saqlaydi va umumanroq ma'lumot strukturasi bilan ishlaydi. Ular relational database lardan SQL farq qiladi, chunki ular ma'lumotlarni scalability va yuqori xavfsizlik va tezlikda ishlashda yordam beradi. Ammo, NoSQL database lar o'zaro bog'lanishlar va boshqa bog'lanishlarda relational database lardan o'rganish qiyinroq

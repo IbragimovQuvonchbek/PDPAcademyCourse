@@ -1,0 +1,10 @@
+DNS (Domain Name System) internet tarmog'ida domen nomlarini IP manzillarga o'zgartirish uchun zarur bo'lgan tizimdir.
+U foydalanuvchilarga oson esda qoladigan domen nomlari orqali veb-saytlarga kirishni ta'minlaydi. DNS bo'lmasa, foydalanuvchilar har bir veb-saytga kirish
+uchun uning IP manzilini eslab qolishlari kerak bo'lardi, bu esa amaliy emas. DNS tizimi domen nomlarini tegishli IP manzillarga avtomatik ravishda o'zgartirib,
+internetni samarali va qulay foydalanish imkonini beradi, shu bilan birga, tarmoqdagi qurilmalar o'rtasidagi aloqa va navigatsiyani osonlashtiradi.
+
+
+
+
+
+

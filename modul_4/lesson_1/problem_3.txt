@@ -1,0 +1,5 @@
+IP protokoli har bir qurilmaga tarmoqda yagona bo‘lgan IP manzil berish orqali identifikatsiya qilish imkonini beradi.
+Bu manzil kompyuterlarning o‘zaro aloqa qilishiga imkon beradi. Ma’lumotlar kichik paketlarga ajratiladi. Har bir paketda jo‘natuvchi va qabul qiluvchi IP manzillari,
+shuningdek, paketning boshqa ma’lumotlari mavjud bo‘ladi.32 bitli manzillar bo‘lib, to‘rtta 8 bitli (0-255 oralig‘idagi) sonlardan iborat. Masalan, 192.168.1.1.
+128 bitli manzillar bo‘lib, olti o‘n oltilik (hexadecimal) raqamlardan iborat. IPv6 manzillari ko‘proq qurilmalarni manzillash imkoniyatini beradi. Masalan, 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
+

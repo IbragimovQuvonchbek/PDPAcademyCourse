@@ -1,0 +1,1 @@
+ multimedia ishlarni bajarish, moddalar va simulatsiyalarni ishga tushirish, shifrlash va kriptografiya operatsiyalarni amalga oshirish, va murakkab algoritmlarni yechish. Bu turlar vazifalar CPUning kuchli ishlab chiqarish kuchini talab qiladi.

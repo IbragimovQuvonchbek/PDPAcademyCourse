@@ -1,0 +1,3 @@
+Internet — katta (global) va kichik (lokal) kompyuter tarmoqlarini oʻzaro bogʻlovchi butunjahon kompyuter tizimi.
+Unda geografik oʻrni, zamon va makondan qatʼiy nazar, ayrim kompyuter va
+mayda tarmoqlar oʻzaro hamkorlikda global informatsiya infratuzilmasini tashkil etadi.

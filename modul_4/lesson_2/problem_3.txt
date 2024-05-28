@@ -1,0 +1,1 @@
+Serverlar asosan Linux OSda ishlaydi, chunki Linux xavfsiz, barqaror, yuqori darajada sozlanadigan va ochiq manbali tizimdir. U kam resurs talab qiladi va ko'plab server dasturlari uchun keng qo'llab-quvvatlanadi, bu esa uning server muhiti uchun ideal tanlov bo'lishiga yordam beradi.
