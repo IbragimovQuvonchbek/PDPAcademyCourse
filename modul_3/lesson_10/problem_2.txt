@@ -1,0 +1,11 @@
+mkdir /home/ibragimov/sqldata
+chown postgres:postgres /home/ibragimov/sqldata
+chmod 700 /home/ibragimov/sqldata
+
+
+CREATE TABLESPACE custom_space LOCATION '/home/ibragimov/sqldata'
+
+CREATE TABLE new_table_custom_space (
+    id SERIAL PRIMARY KEY,
+    data varchar(255)s
+) TABLESPACE custom_space;

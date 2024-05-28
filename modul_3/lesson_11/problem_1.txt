@@ -1,0 +1,71 @@
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    user_language VARCHAR(2) DEFAULT 'en'
+);
+
+CREATE TABLE error_messages (
+    error_code VARCHAR(10),
+    language_code VARCHAR(2) NOT NULL,
+    message TEXT NOT NULL
+);
+
+INSERT INTO error_messages (error_code, language_code, message) VALUES
+('AUTH_FAIL', 'en', 'Authentication failed.'),
+('AUTH_FAIL', 'uz', 'Aftarizatsiyada xatolik'),
+('REG_FAIL', 'en', 'Registration failed.'),
+('REG_FAIL', 'uz', 'Registratsiyada xatolik.');
+
+
+CREATE OR REPLACE FUNCTION get_user_language(user_id_param INT) RETURNS VARCHAR(2) AS $$
+DECLARE
+    lang VARCHAR(2);
+BEGIN
+    SELECT user_language INTO lang FROM users WHERE user_id = user_id_param;
+    RETURN lang;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION get_error_message(error_code_param VARCHAR, user_id_param INT) RETURNS TEXT AS $$
+DECLARE
+    lang VARCHAR(2);
+    error_msg TEXT;
+BEGIN
+    lang := get_user_language(user_id_param);
+    SELECT message INTO error_msg FROM error_messages WHERE error_code = error_code_param AND language_code = lang;
+    RETURN error_msg;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION auth_login(user_id INT, username VARCHAR, password VARCHAR) RETURNS BOOLEAN AS $$
+BEGIN
+    -- Authentication logic
+    IF username <> 'quvonchbek' OR password <> 'correct_password' THEN
+        RAISE EXCEPTION '%', get_error_message('AUTH_FAIL', user_id);
+    END IF;
+    RETURN TRUE;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION auth_register(user_id INT, username VARCHAR, password VARCHAR) RETURNS BOOLEAN AS $$
+BEGIN
+    -- Registration logic (example)
+    IF username = '' OR password = '' THEN
+        RAISE EXCEPTION USING MESSAGE = get_error_message('REG_FAIL', user_id);
+    END IF;
+    RETURN TRUE;
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE EXCEPTION USING MESSAGE = get_error_message(SQLERRM, user_id);
+END;
+$$ LANGUAGE plpgsql;
+
+
+INSERT INTO users(user_name, user_language)
+VALUES('ibragimov', 'uz');
+
+
+SELECT auth_login(1, 'quvonchbek', 'incorrect_password');

@@ -1,0 +1,13 @@
+Table larni join qilish SQL da ikki yoki undan ortiq jadvalni ularning ustunlaridagi umumiy qiymatlar asosida birlashtirish jarayonini anglatadi.
+
+INNER JOIN - Har ikki jadvaldagi mos keluvchi yozuvlarni qaytaradi.
+
+LEFT JOIN - Chap jadvaldagi barcha yozuvlarni va o'ng jadvaldagi mos keluvchi yozuvlarni qaytaradi. Agar mos yozuv bo'lmasa, NULL qiymat qaytariladi.
+
+RIGHT JOIN - O'ng jadvaldagi barcha yozuvlarni va chap jadvaldagi mos keluvchi yozuvlarni qaytaradi. Agar mos yozuv bo'lmasa, NULL qiymat qaytariladi.
+
+FULL JOIN - Har ikki jadvaldagi barcha yozuvlarni qaytaradi. Agar mos yozuv bo'lmasa, NULL qiymat qaytariladi.
+
+CROSS JOIN - Har bir jadvaldagi barcha kombinatsiyalarni qaytaradi.
+
+SELF JOIN - Bir jadvalli o'ziga o'zi join qilish.

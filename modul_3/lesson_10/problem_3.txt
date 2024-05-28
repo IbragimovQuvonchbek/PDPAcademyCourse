@@ -1,0 +1,11 @@
+PostgreSQLda schema ma'lumotlar bazasidagi ob'ektlarni mantiqiy guruhlarga ajratish uchun ishlatiladi. Sxemalar ma'lumotlar bazasidagi jadvallar, ko'rinishlar, indekslar, funksiyalar va boshqa ob'ektlarni bir joyda saqlashga imkon beradi.
+
+
+CREATE SCHEMA sales;
+
+CREATE TABLE sales.orders (
+    order_id SERIAL PRIMARY KEY,
+    order_date DATE,
+    customer_id INTEGER
+);
+
