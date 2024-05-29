@@ -1,0 +1,1 @@
+Django loyihalarining arxitekturasi quyidagi qismlardan tashkil topgan: Model (ORM), ma'lumotlar bazasini boshqaradi; View, foydalanuvchi interfeysi va mantiqni boshqaradi; Template, HTML shaklidagi ko'rinishni yaratadi; URLconf, URL manzillarini boshqaradi; va Admin paneli, ma'lumotlarni boshqarish uchun foydalaniladi.

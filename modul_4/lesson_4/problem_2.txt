@@ -1,0 +1,1 @@
+Djangoda loyihalar yaratish tez, chunki u ko'plab o'rnatilgan funksiyalar bilan birga keladi, jumladan autentifikatsiya, ORM, shablon dvigateli, va admin paneli. Bu funksiyalar dasturchilarga qo'shimcha konfiguratsiyalarni bajarishga hojat qoldirmay, standart vazifalarni tez va samarali bajarishga imkon beradi.
