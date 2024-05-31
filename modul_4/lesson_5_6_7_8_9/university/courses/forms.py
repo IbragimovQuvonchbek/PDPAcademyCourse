@@ -1,5 +1,6 @@
 from django import forms
 from .models import Speciality, Teacher, Subject
+from dal import autocomplete
 
 
 class SpecialityForm(forms.ModelForm):
@@ -18,6 +19,15 @@ class TeacherForm(forms.ModelForm):
 
 
 class SubjectForm(forms.ModelForm):
+    specialities = forms.ModelMultipleChoiceField(
+        queryset=Speciality.objects.all(),
+        widget=autocomplete.ModelSelect2Multiple(url='speciality-autocomplete')
+    )
+    teachers = forms.ModelMultipleChoiceField(
+        queryset=Teacher.objects.all(),
+        widget=autocomplete.ModelSelect2Multiple(url='teacher-autocomplete')
+    )
+
     class Meta:
         model = Subject
-        fields = '__all__'
+        fields = ['name', 'specialities', 'teachers']

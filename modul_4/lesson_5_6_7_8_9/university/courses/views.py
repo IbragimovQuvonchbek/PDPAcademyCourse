@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-
+from dal import autocomplete
 from .forms import SpecialityForm, TeacherForm, SubjectForm
 from .models import Speciality, Teacher, Subject
 
@@ -76,3 +76,23 @@ def subject_create(request):
     else:
         form = SubjectForm()
     return render(request, 'subject_form.html', {'form': form})
+
+
+class SpecialityAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        if not self.request.user.is_authenticated:
+            return Speciality.objects.none()
+        qs = Speciality.objects.all()
+        if self.q:
+            qs = qs.filter(name__icontains=self.q)
+        return qs
+
+
+class TeacherAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        if not self.request.user.is_authenticated:
+            return Teacher.objects.none()
+        qs = Teacher.objects.all()
+        if self.q:
+            qs = qs.filter(first_name__icontains=self.q)
+        return qs

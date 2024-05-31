@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import teacher_create, subject_detail_view, subject_list_view, course_name_view, speciality_list_view, \
     teacher_search_view, \
-    speciality_create, subject_create
+    speciality_create, subject_create, SpecialityAutocomplete, TeacherAutocomplete
 
 urlpatterns = [
     path('', course_name_view, name='course_name_view'),
@@ -12,4 +12,6 @@ urlpatterns = [
     path('speciality/create/', speciality_create, name='speciality_create'),
     path('teacher/create/', teacher_create, name='teacher_create'),
     path('subject/create/', subject_create, name='subject_create'),
+    path('speciality-autocomplete/', SpecialityAutocomplete.as_view(), name='speciality-autocomplete'),
+    path('teacher-autocomplete/', TeacherAutocomplete.as_view(), name='teacher-autocomplete'),
 ]
