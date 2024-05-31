@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subjects</title>
+</head>
+<body>
+    <h1>Subjects</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <ul>
+            {% for subject in subjects %}
+                <li><a href="{% url 'subject_detail_view' subject.id %}">{{ subject.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subject Detail</title>
+</head>
+<body>
+    <h1>{{ subject.name }}</h1>
+    <h2>Specialities</h2>
+    <ul>
+        {% for speciality in subject.speciality.all %}
+            <li>{{ speciality.name }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Teachers</h2>
+    <ul>
+        {% for teacher in subject.teachers.all %}
+            <li>{{ teacher.first_name }} {{ teacher.last_name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

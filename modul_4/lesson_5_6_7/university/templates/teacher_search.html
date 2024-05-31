@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teachers</title>
+</head>
+<body>
+    <h1>Teachers</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <ul>
+            {% for teacher in teachers %}
+                <li>{{ teacher.first_name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
