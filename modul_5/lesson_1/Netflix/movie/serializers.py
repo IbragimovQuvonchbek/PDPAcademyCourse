@@ -2,7 +2,7 @@ import datetime
 
 from rest_framework import serializers
 
-from .models import Movie, Actor
+from .models import Movie, Actor, Comment
 
 
 class ActorSerializer(serializers.ModelSerializer):
@@ -22,3 +22,9 @@ class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = '__all__'
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ['text', 'created_date', 'movie', 'user']
