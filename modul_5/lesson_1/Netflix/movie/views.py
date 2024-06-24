@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from .serializers import ActorSerializer, MovieSerializer, CommentSerializer
 from rest_framework.views import APIView
+from rest_framework.decorators import action
 
 
 class MovieViewSet(viewsets.ModelViewSet):
@@ -36,9 +37,8 @@ class MovieViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
 
-
-class AddActorToMovieAPIView(APIView):
-    def get(self, request):
+    @action(detail=False, methods=['post'], url_path='add-actor')
+    def add_actor(self, request):
         movie_id = request.query_params.get('movie_id')
         actor_id = request.query_params.get('actor_id')
 
@@ -55,6 +55,25 @@ class AddActorToMovieAPIView(APIView):
 
         movie.actors.add(actor)
         return Response({"message": "Actor added to movie"}, status=status.HTTP_201_CREATED)
+
+    @action(detail=False, methods=['delete'], url_path='remove-actor')
+    def remove_actor(self, request):
+        movie_id = request.query_params.get('movie_id')
+        actor_id = request.query_params.get('actor_id')
+
+        if not movie_id or not actor_id:
+            return Response({"error": "movie_id and actor_id are required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            movie = Movie.objects.get(pk=movie_id)
+            actor = Actor.objects.get(pk=actor_id)
+        except Movie.DoesNotExist:
+            return Response({"error": "Movie not found"}, status=status.HTTP_404_NOT_FOUND)
+        except Actor.DoesNotExist:
+            return Response({"error": "Actor not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        movie.actors.remove(actor)
+        return Response({"message": "Actor removed from movie"}, status=status.HTTP_201_CREATED)
 
 
 class ActorViewSet(viewsets.ModelViewSet):
@@ -84,27 +103,6 @@ class ActorViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
-
-
-class RemoveActorFromAPIView(APIView):
-    def get(self, request):
-        movie_id = request.query_params.get('movie_id')
-        actor_id = request.query_params.get('actor_id')
-
-        if not movie_id or not actor_id:
-            return Response({"error": "movie_id and actor_id are required"}, status=status.HTTP_400_BAD_REQUEST)
-
-        try:
-            movie = Movie.objects.get(pk=movie_id)
-            actor = Actor.objects.get(pk=actor_id)
-
-        except Movie.DoesNotExist:
-            return Response({"error": "Movie not found"}, status=status.HTTP_404_NOT_FOUND)
-        except Actor.DoesNotExist:
-            return Response({"error": "Actor not found"}, status=status.HTTP_404_NOT_FOUND)
-
-        movie.actors.remove(actor)
-        return Response({"message": "Actor removed from movie"}, status=status.HTTP_201_CREATED)
 
 
 class MovieActorAPIView(APIView):
