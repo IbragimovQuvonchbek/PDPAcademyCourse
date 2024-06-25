@@ -1,17 +1,22 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, filters
 from .models import Movie, Actor, Comment
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from .serializers import ActorSerializer, MovieSerializer, CommentSerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import action
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['name', 'actors__name']
+    ordering_fields = ['-imdb', 'imdb']
+    filterset_fields = ['genre']
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
